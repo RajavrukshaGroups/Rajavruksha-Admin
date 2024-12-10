@@ -1,9 +1,11 @@
 import * as React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Grid, TextField, Button, Typography } from "@mui/material";
 import "./careers.css";
 
 const CareersComponent = () => {
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [qualifications, setQualifications] = useState("");
@@ -122,9 +124,9 @@ const CareersComponent = () => {
     if (!category) newErrors.category = "Job Category is required";
     if (!jobType) newErrors.jobType = "Job Type is required";
     if (!location) newErrors.location = "Location is required";
-    if(!salary) newErrors.salary = "Salary is required";
-    if(!age) newErrors.age = "Age is required";
-    if(!timings) newErrors.timings = "Timings is required";
+    if (!salary) newErrors.salary = "Salary is required";
+    if (!age) newErrors.age = "Age is required";
+    if (!timings) newErrors.timings = "Timings is required";
 
     // if (salary && isNaN(salary)) newErrors.salary = "Salary must be a number";
     // if (age && isNaN(age)) newErrors.age = "Age must be a number";
@@ -170,6 +172,7 @@ const CareersComponent = () => {
 
         if (response.ok) {
           alert("Form submitted successfully!");
+          navigate("/careers");
 
           // Reset form fields
           setTitle("");
@@ -280,6 +283,7 @@ const CareersComponent = () => {
                   variant="outlined"
                   value={skill}
                   onChange={(e) => handleSkillsChange(index, e)}
+                  sx={{marginTop:"10px"}}
                   error={!!errors.skills}
                   helperText={
                     errors.skills && index === skills.length - 1

@@ -11,7 +11,7 @@ const HomePageComponent = () => {
       </div>
       <div>
         <Link to="/careers" className="text-blue-500 hover:underline">
-          Create Careers
+           Careers Details
         </Link>
       </div>
     </div>
