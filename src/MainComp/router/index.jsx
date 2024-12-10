@@ -1,18 +1,18 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MainHomePage from "../HomePage/homePage";
-import MainProjectsPage from "../ProjectsPage/projectsPage";
-import MainCareersPage from "../CareersPage/careersPage";
+import HomePage from "../HomePage/homePage";
+import ProjectsPage from "../ProjectsPage/projectsPage";
+import CareersPage from "../CareersPage/careersPage";
+import Login from "../../Component/Login/login";
 const AllRoute = () => {
   return (
-    <div>
       <Router>
         <Routes>
-          <Route path="/" element={<MainHomePage />} />
-          <Route path="/projects" element={<MainProjectsPage />} />
-          <Route path="/careers" element={<MainCareersPage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} /> 
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/careers" element={<CareersPage />} />
         </Routes>
       </Router>
-    </div>
   );
 };
 
