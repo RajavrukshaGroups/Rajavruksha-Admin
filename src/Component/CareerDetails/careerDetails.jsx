@@ -12,7 +12,7 @@ const CareerDetails = () => {
   useEffect(() => {
     const fetchCareerDetails = async () => {
       try {
-        const response = await fetch("https://admin-rajavruksha.vercel.app/getCareers");
+        const response = await fetch("http://localhost:3000/getCareers");
         if (!response.ok) {
           throw new Error("Failed to fetch career details");
         }
@@ -44,7 +44,7 @@ const CareerDetails = () => {
   const handleConfirmDelete = async () => {
     try {
       const response = await fetch(
-        `https://admin-rajavruksha.vercel.app/deleteCareer/${careerToDelete}`,
+        `https://admin-rajavruksha.vercel.app/${careerToDelete}`,
         {
           method: "DELETE",
         }
