@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
-
   const navigate = useNavigate();
   const handleLogout = () => {
       localStorage.removeItem('isLoggedIn'); // Clear the login state
@@ -17,7 +16,6 @@ const AdminDashboard = () => {
           Admin Dashboard
         </div>
         {/* <button
-                
                 className="bg-red-500 hover:bg-red-600 text-white font-semibold rounded-md py-2 px-4"
             >
                 Logout

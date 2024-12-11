@@ -30,7 +30,7 @@ const EditCareerComponent = () => {
     const fetchCareerDetails = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/getIndCareer/${id}`
+          `https://admin-rajavruksha.vercel.app/getIndCareer/${id}`
         );
         if (response.ok) {
           const result = await response.json();

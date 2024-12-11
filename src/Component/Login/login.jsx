@@ -19,7 +19,7 @@ const Login = () => {
         console.log("Email:", email);
         console.log("Password:", password);
 
-        const url = "http://localhost:3000/login";
+        const url = "https://admin-rajavruksha.vercel.app/login";
         try {
             const response = await fetch(url, {
                 method: "POST",
