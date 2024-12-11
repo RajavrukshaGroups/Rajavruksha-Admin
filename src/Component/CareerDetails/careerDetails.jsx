@@ -44,6 +44,7 @@ const CareerDetails = () => {
   const handleConfirmDelete = async () => {
     try {
       const response = await fetch(
+        // `http://localhost:3000/${careerToDelete}`,
         `https://admin-rajavruksha.vercel.app/${careerToDelete}`,
         {
           method: "DELETE",
