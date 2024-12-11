@@ -148,7 +148,7 @@ const EditCareerComponent = () => {
     });
 
     try {
-      const response = await fetch(`http://localhost:3000/edit-career/${id}`, {
+      const response = await fetch(`https://adminpanel-backend-ycn7.vercel.app/edit-career/${id}`, {
         method: "PUT",
         body: updatedFormData,
       });

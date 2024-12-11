@@ -10,7 +10,7 @@ const CareerIndDetailPage = () => {
   useEffect(() => {
     const fetchCareerDetail = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/getIndCareer/${id}`);
+        const response = await fetch(`https://adminpanel-backend-ycn7.vercel.app/getIndCareer/${id}`);
         // const response = await fetch(`https://admin-rajavruksha.vercel.app/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch career details");
