@@ -5,15 +5,16 @@ import CareersPage from "../CareersPage/careersPage";
 import Login from "../../Component/Login/login";
 import CareerDetails from "../../Component/CareerDetails/careerDetails";
 import CareerIndDetailPage from "../../Component/CareerDetails/careerIndDetails";
-import CareerEditForm from "../../Component/CareersPage/careerEditForm"
+import CareerEditForm from "../../Component/CareersPage/careerEditForm";
+import Logout from "../../Component/Logout/logout";
 const AllRoute = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="/projects" element={<ProjectsPage />} />
-        {/* <Route path="/careers" element={<CareersPage />} /> */}
         <Route path="/careers" element={<CareerDetails />} />
         <Route path="/career-form" element={<CareersPage />} />
         <Route path="/career-details/:id" element={<CareerIndDetailPage />} />
