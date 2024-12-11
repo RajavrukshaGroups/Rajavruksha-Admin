@@ -9,6 +9,7 @@ const EditCareerComponent = () => {
 
   const [formData, setFormData] = useState({
     title: "",
+    shortTitle:"",
     description: "",
     qualifications: "",
     skills: [],
@@ -19,6 +20,7 @@ const EditCareerComponent = () => {
     category: "",
     jobType: "",
     location: "",
+    link:"",
     image: null,
   });
   const [errors, setErrors] = useState({});
@@ -38,6 +40,7 @@ const EditCareerComponent = () => {
           console.log("data", data);
           setFormData({
             title: data.title,
+            shortTitle:data.shortTitle,
             description: data.description,
             qualifications: data.qualifications,
             skills: data.skills || [],
@@ -48,6 +51,7 @@ const EditCareerComponent = () => {
             category: data.category,
             jobType: data.jobType,
             location: data.location,
+            link:data.link,
             image: data.image?.url || null, // Image won't be set directly; keep it as null
           });
           setImagePreview(data.image?.url || null); // Preview existing image
@@ -112,6 +116,8 @@ const EditCareerComponent = () => {
 
     // Validation logic for all fields
     if (!formData.title.trim()) newErrors.title = "Career Title is required";
+    if (!formData.shortTitle.trim()) newErrors.shortTitle = "Career Short Title is required";
+
     if (!formData.description.trim())
       newErrors.description = "Job Role Description is required";
     if (!formData.qualifications.trim())
@@ -127,6 +133,8 @@ const EditCareerComponent = () => {
       newErrors.category = "Job Category is required";
     if (!formData.jobType.trim()) newErrors.jobType = "Job Type is required";
     if (!formData.location.trim()) newErrors.location = "Location is required";
+    if (!formData.link.trim()) newErrors.link = "link is required";
+
     if (!formData.image) newErrors.image = "Job Image is required";
 
     // If there are validation errors, set them and prevent form submission
@@ -197,6 +205,18 @@ const EditCareerComponent = () => {
               onChange={(e) => handleInputChange(e, "title")}
               error={!!errors.title}
               helperText={errors.title}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              label="Career Short Title"
+              variant="outlined"
+              required
+              value={formData.shortTitle}
+              onChange={(e) => handleInputChange(e, "shortTitle")}
+              error={!!errors.shortTitle}
+              helperText={errors.shortTitle}
             />
           </Grid>
           <Grid item xs={12}>
@@ -330,6 +350,18 @@ const EditCareerComponent = () => {
               onChange={(e) => handleInputChange(e, "jobType")}
               error={!!errors.jobType}
               helperText={errors.jobType}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              label="Edit link"
+              variant="outlined"
+              required
+              value={formData.link}
+              onChange={(e) => handleInputChange(e, "link")}
+              error={!!errors.link}
+              helperText={errors.link}
             />
           </Grid>
           <Grid item xs={12}>
