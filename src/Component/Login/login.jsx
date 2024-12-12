@@ -8,6 +8,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log('useeffect is called funnction is running');
         // Redirect to dashboard if already logged in
         const isLoggedIn = localStorage.getItem('isLoggedIn');
         if (isLoggedIn) {
@@ -18,9 +19,8 @@ const Login = () => {
     const Signin = async (email, password) => {
         console.log("Email:", email);
         console.log("Password:", password);
-
-        const url = "https://adminpanel-backend-ycn7.vercel.app/login";
-        // const url = "http://localhost:3000/login";
+        // const url = "http://localhost:3000/login"; // Replace with your backend URL
+        const url = "https://adminpanel-backend-ycn7.vercel.app/login"; // Replace with your backend URL
         try {
             const response = await fetch(url, {
                 method: "POST",
@@ -29,25 +29,62 @@ const Login = () => {
                 },
                 body: JSON.stringify({ email, password }),
             });
-
+    
+            const data = await response.json(); // Parse JSON response
+    
             if (!response.ok) {
-                throw new Error(`Error: ${response.status}`);
+                // Show the backend's error message, if available
+                throw new Error(data.message || `Error: ${response.status}`);
             }
-
-            const data = await response.json();
+    
             console.log(data);
-
+    
             if (data.success) {
                 alert("Login Successful");
                 localStorage.setItem('isLoggedIn', true); // Set login state in localStorage
                 navigate('/'); // Redirect to the dashboard
             } else {
-                alert(data.message);
+                alert(data.message); // Show message sent by the backend
             }
         } catch (error) {
+            // Show error message
             console.error("Error during signin:", error.message);
+            alert(error.message || "An error occurred during login. Please try again.");
         }
     };
+
+    // const Signin = async (email, password) => {
+    //     console.log("Email:", email);
+    //     console.log("Password:", password);
+    //     // const url = "https://adminpanel-backend-ycn7.vercel.app/login";
+    //     const url = "http://localhost:3000/login";
+    //     try {
+    //         const response = await fetch(url, {
+    //             method: "POST",
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //             body: JSON.stringify({ email, password }),
+    //         });
+
+    //         if (!response.ok) {
+    //             throw new Error(`Error: ${response.status}`);
+    //         }
+
+    //         const data = await response.json();
+    //         console.log(data);
+
+    //         if (data.success) {
+    //             alert("Login Successful");
+    //             localStorage.setItem('isLoggedIn', true); // Set login state in localStorage
+    //             navigate('/'); // Redirect to the dashboard
+    //         } else {
+    //             alert(data.message);
+    //         }
+    //     } catch (error) {
+    //         console.error("Error during signin:", error.message);
+    //     }
+    // };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
