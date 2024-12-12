@@ -7,7 +7,6 @@ import "./careers.css";
 const CareersComponent = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
-  const [shortTitle, setShortTitle] = useState("");
   const [description, setDescription] = useState("");
   const [qualifications, setQualifications] = useState("");
   const [skills, setSkills] = useState([]);
@@ -18,7 +17,6 @@ const CareersComponent = () => {
   const [category, setCategory] = useState("");
   const [jobType, setJobType] = useState("");
   const [location, setLocation] = useState("");
-  const [link, setLink] = useState("");
   const [image, setImage] = useState(null);
   const [errors, setErrors] = useState({});
   const imageInputRef = React.useRef(null);
@@ -59,9 +57,6 @@ const CareersComponent = () => {
       case "title":
         setTitle(value);
         break;
-      case "shortTitle":
-        setShortTitle(value);
-        break;
       case "description":
         setDescription(value);
         break;
@@ -88,9 +83,6 @@ const CareersComponent = () => {
         break;
       case "location":
         setLocation(value);
-        break;
-      case "link":
-        setLink(value);
         break;
       default:
         break;
@@ -119,8 +111,6 @@ const CareersComponent = () => {
     const newErrors = {};
 
     if (!title) newErrors.title = "Career Title is required";
-    if (!shortTitle) newErrors.shortTitle = "Career Short Title is required";
-
     if (!description)
       newErrors.description = "Job Role Description is required";
     if (!qualifications)
@@ -137,7 +127,6 @@ const CareersComponent = () => {
     if (!salary) newErrors.salary = "Salary is required";
     if (!age) newErrors.age = "Age is required";
     if (!timings) newErrors.timings = "Timings is required";
-    if (!link) newErrors.link = "link is required";
 
     // if (salary && isNaN(salary)) newErrors.salary = "Salary must be a number";
     // if (age && isNaN(age)) newErrors.age = "Age must be a number";
@@ -152,7 +141,6 @@ const CareersComponent = () => {
 
       // Append form fields to formData
       formData.append("title", title);
-      formData.append("shortTitle", shortTitle);
       formData.append("description", description);
       formData.append("qualifications", qualifications);
       formData.append("skills", JSON.stringify(skills)); // Pass as JSON string
@@ -163,7 +151,6 @@ const CareersComponent = () => {
       formData.append("category", category);
       formData.append("jobType", jobType);
       formData.append("location", location);
-      formData.append("link", link);
 
       // Check if image input exists and append it to the formData
       if (imageInputRef.current?.files[0]) {
@@ -178,7 +165,8 @@ const CareersComponent = () => {
       }
 
       try {
-        const response = await fetch("https://adminpanel-backend-ycn7.vercel.app/newCareer", {
+        // const response = await fetch("http://admin-rajavruksha.vercel.app/newCareer", {
+        const response = await fetch("https://server-rrpl-admin.vercel.app/newCareer", {
           method: "POST",
           body: formData,
         });
@@ -189,7 +177,6 @@ const CareersComponent = () => {
 
           // Reset form fields
           setTitle("");
-          setShortTitle("");
           setDescription("");
           setQualifications("");
           setSkills([]);
@@ -200,7 +187,6 @@ const CareersComponent = () => {
           setCategory("");
           setJobType("");
           setLocation("");
-          setLink("");
           setImage(null);
           setErrors({});
 
@@ -254,19 +240,6 @@ const CareersComponent = () => {
               helperText={errors.title}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              fullWidth
-              label="Short Title"
-              variant="outlined"
-              name="shortTitle"
-              required
-              value={shortTitle}
-              onChange={(e) => handleInputChange(e, "shortTitle")}
-              error={!!errors.shortTitle}
-              helperText={errors.shortTitle}
-            />
-          </Grid>
 
           <Grid item xs={12}>
             <TextField
@@ -311,7 +284,7 @@ const CareersComponent = () => {
                   variant="outlined"
                   value={skill}
                   onChange={(e) => handleSkillsChange(index, e)}
-                  sx={{ marginTop: "10px" }}
+                  sx={{marginTop:"10px"}}
                   error={!!errors.skills}
                   helperText={
                     errors.skills && index === skills.length - 1
@@ -421,20 +394,6 @@ const CareersComponent = () => {
               onChange={(e) => handleInputChange(e, "jobType")}
               error={!!errors.jobType}
               helperText={errors.jobType}
-            />
-          </Grid>
-
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              label="Add link"
-              variant="outlined"
-              name="link"
-              required
-              value={link}
-              onChange={(e) => handleInputChange(e, "link")}
-              error={!!errors.link}
-              helperText={errors.link}
             />
           </Grid>
 
