@@ -49,7 +49,8 @@ const CareerDetails = () => {
     try {
       const response = await fetch(
         // `http://localhost:3000/${careerToDelete}`,
-        `https://server-rrpl-admin.vercel.app/${careerToDelete}`,
+        // `https://server-rrpl-admin.vercel.app/${careerToDelete}`,
+        `https://server-rrpl-admin.vercel.app/deleteCareer/${careerToDelete}`,
         {
           method: "DELETE",
         }
