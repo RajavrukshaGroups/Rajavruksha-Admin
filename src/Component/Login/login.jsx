@@ -20,7 +20,7 @@ const Login = () => {
         console.log("Email:", email);
         console.log("Password:", password);
         // const url = "http://localhost:3000/login"; // Replace with your backend URL
-        const url = "https://adminpanel-backend-ycn7.vercel.app/login"; // Replace with your backend URL
+        const url = "https://admin-rajavruksha.vercel.app/login"; // Replace with your backend URL
         try {
             const response = await fetch(url, {
                 method: "POST",
