@@ -166,7 +166,7 @@ const CareersComponent = () => {
 
       try {
         // const response = await fetch("http://admin-rajavruksha.vercel.app/newCareer", {
-        const response = await fetch("https://adminpanel-backend-ycn7.vercel.app/newCareer", {
+        const response = await fetch("https://server-rrpl-admin.vercel.app/newCareer", {
           method: "POST",
           body: formData,
         });
