@@ -105,7 +105,7 @@ const Login = () => {
                 />
             </div>
             <div className="lg:p-36 md:p-52 sm:20 p-8 w-full lg:w-1/2">
-                <h1 className="text-4xl font-semibold mb-4 text-center">Admin Login</h1>
+                <h1 className="text-4xl font-semibold mb-4 text-center">Admin login</h1>
                 <form onSubmit={handleSubmit} method="POST">
                     <div className="mb-4 bg-sky-100">
                         <label htmlFor="email" className="block text-gray-600">Email</label>
