@@ -14,7 +14,8 @@ const CareerIndDetailPage = () => {
       try {
         // const response=await fetch(`https://admin-rajavruksha.vercel.app/getIndCareer/${id}`)
         const response = await fetch(
-          `http://localhost:3000/getIndCareer/${id}`
+          `https://server-rrpl-admin.vercel.app/getIndCareer/${id}`
+          // `http://localhost:3000/getIndCareer/${id}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch career details");

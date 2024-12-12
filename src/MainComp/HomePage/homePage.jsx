@@ -10,7 +10,8 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const response = await fetch("http://localhost:3000/careerCount");
+        // const response = await fetch("http://localhost:3000/careerCount");
+        const response = await fetch("https://server-rrpl-admin.vercel.app/careerCount");
         const data = await response.json();
 
         if (data.success) {

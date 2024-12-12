@@ -156,7 +156,8 @@ const EditCareerComponent = () => {
     });
 
     try {
-      const response = await fetch(`http://localhost:3000/edit-career/${id}`, {
+      // const response = await fetch(`http://localhost:3000/edit-career/${id}`, {
+      const response = await fetch(`https://server-rrpl-admin.vercel.app/edit-career/${id}`, {
         method: "PUT",
         body: updatedFormData,
       });

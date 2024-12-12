@@ -14,7 +14,8 @@ const CareerDetails = () => {
     const fetchCareerDetails = async () => {
       try {
         // const response = await fetch("https://adminpanel-backend-ycn7.vercel.app/getCareers");
-        const response = await fetch("http://localhost:3000/getCareers");
+        const response = await fetch("https://server-rrpl-admin.vercel.app/getCareers");
+        // const response = await fetch("http://localhost:3000/getCareers");
         // const response = await fetch("https://admin-rajavruksha.vercel.app/getCareers");
         if (!response.ok) {
           throw new Error("Failed to fetch career details");
